@@ -22,7 +22,7 @@ use Yii;
  * @property string $ec_phone
  * @property int $establishment_id
  */
-class User extends \app\models\UserBase
+class UserBase extends \yii\db\ActiveRecord
 {
     /**
      * {@inheritdoc}
@@ -38,7 +38,7 @@ class User extends \app\models\UserBase
     public function rules()
     {
         return [
-            [['u_fname', 'u_mname', 'u_lname', 'u_phone', 'u_email', 'u_type', 'ec_fname', 'ec_mname', 'ec_lname', 'ec_phone', 'establishment_id'], 'required'],
+            [['u_fname', 'u_mname', 'u_lname', 'u_suffix', 'u_phone', 'u_email', 'u_type', 'ec_fname', 'ec_mname', 'ec_lname', 'ec_suffix', 'ec_phone', 'establishment_id'], 'required'],
             [['establishment_id'], 'integer'],
             [['u_fname', 'u_mname', 'u_lname', 'u_suffix', 'u_phone', 'u_email', 'u_type', 'ec_fname', 'ec_mname', 'ec_lname', 'ec_suffix', 'ec_phone'], 'string', 'max' => 100],
         ];
@@ -51,18 +51,18 @@ class User extends \app\models\UserBase
     {
         return [
             'u_id' => 'U ID',
-            'u_fname' => 'First Name',
-            'u_mname' => 'Middle Name',
-            'u_lname' => 'Last Name',
-            'u_suffix' => 'Suffix',
-            'u_phone' => 'Phone Number',
-            'u_email' => 'Email',
-            'u_type' => 'User Type',
-            'ec_fname' => 'First Name',
-            'ec_mname' => 'Middle Name',
-            'ec_lname' => 'Last Name',
-            'ec_suffix' => 'Suffix',
-            'ec_phone' => 'Phone Number',
+            'u_fname' => 'U Fname',
+            'u_mname' => 'U Mname',
+            'u_lname' => 'U Lname',
+            'u_suffix' => 'U Suffix',
+            'u_phone' => 'U Phone',
+            'u_email' => 'U Email',
+            'u_type' => 'U Type',
+            'ec_fname' => 'Ec Fname',
+            'ec_mname' => 'Ec Mname',
+            'ec_lname' => 'Ec Lname',
+            'ec_suffix' => 'Ec Suffix',
+            'ec_phone' => 'Ec Phone',
             'establishment_id' => 'Establishment ID',
         ];
     }

@@ -14,13 +14,13 @@ $config = [
     'components' => [
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
-            'cookieValidationKey' => '',
+            'cookieValidationKey' => 'IS226-PHP-Yii',
         ],
         'cache' => [
             'class' => 'yii\caching\FileCache',
         ],
         'user' => [
-            'identityClass' => 'app\models\User',
+            'identityClass' => 'app\models\Account',
             'enableAutoLogin' => true,
         ],
         'errorHandler' => [
@@ -42,15 +42,27 @@ $config = [
                 ],
             ],
         ],
-        'db' => $db,
-        /*
-        'urlManager' => [
-            'enablePrettyUrl' => true,
-            'showScriptName' => false,
-            'rules' => [
-            ],
+        'db' => [
+            'class' => 'yii\db\Connection',
+            'dsn' => 'mysql:host=localhost;dbname=oms_db',
+            'username' => 'root',
+            'password' => '',
+            'charset' => 'utf8',
         ],
-        */
+        
+        /*'urlManager' => [
+            'enablePrettyUrl' => true,
+            //'showScriptName' => false,
+            'enableStrictParsing' => false,
+            'rules' => [
+                'gii' => 'gii',
+                'gii/<controller:w+>' => 'gii/<controller>',
+                'gii/<controller:w+>/<action:\w+>' =>'gii/<controller>/<action>',
+                '<module>/<controller>/<id:\d+>' => '<module>/<controller>/view', 
+                
+            ],
+        ],*/
+        
     ],
     'params' => $params,
 ];
